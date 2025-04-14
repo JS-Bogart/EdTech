@@ -9,14 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/bungee-shade": "^5.2.5",
+    "@fontsource/monofett": "^5.2.5",
+    "gsap": "^3.12.7",
+    "next": "15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.0"
+    "styled-components": "^6.1.17"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "@types/react-dom": "^19",
+    "typescript": "^5"
   }
 }
