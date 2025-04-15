@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource/bungee-shade": "^5.2.5",
     "@fontsource/monofett": "^5.2.5",
+    "@fontsource/orienta": "^5.2.5",
     "gsap": "^3.12.7",
     "next": "15.3.0",
     "react": "^19.0.0",
