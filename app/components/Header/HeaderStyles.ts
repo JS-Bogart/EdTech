@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const HeaderWrap = styled.div`
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
   height: 70px;
@@ -10,8 +10,22 @@ export const HeaderWrap = styled.div`
   top: 0;
   width: 100%;
   z-index: 100;
-  /* background-color: black; */
+  grid-template-columns: [first] 225px [second] 350px [third] 225px;
+  justify-content: space-between;
+  @media only screen and (max-width: 800px) {
+    grid-template-columns: [first] auto [second] auto;
+  }
 `;
+
+export const LinkWrap = styled.div`
+  grid-column-start: 2;
+  grid-column-end: 3;
+  @media only screen and (max-width: 800px) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+`;
+
 export const HeaderIconWrap = styled.div`
   position: relative;
   display: flex;
@@ -19,9 +33,14 @@ export const HeaderIconWrap = styled.div`
   justify-content: center;
   cursor: pointer;
 
-  &:hover span {
-    opacity: 1;
-    transform: translateX(0);
+  @media only screen and (min-width: 800px) {
+    &:hover span {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    margin: 0px 15px;
   }
 `;
 
@@ -31,7 +50,6 @@ export const TextBox = styled.div`
   height: 50px;
   width: 150px;
   overflow: hidden;
-  /* background-color: white; */
 `;
 
 export const SideText = styled.span<{ $position: "left" | "right" }>`
@@ -40,13 +58,20 @@ export const SideText = styled.span<{ $position: "left" | "right" }>`
   font-size: 40px;
   color: #5a003c;
   transition: all 0.9s ease;
-  /* font-family: "Bungee Shade", system-ui; */
   font-family: "Monofett", monospace;
-  /* opacity: 0; */
   ${(props) => (props.$position === "left" ? "left: 5px;" : "left: 7px;")}
   transform: translateX(
     ${(props) => (props.$position === "left" ? "150px" : "-150px")}
   );
+`;
+
+export const SideTextMobile = styled.span<{ $position: "left" | "right" }>`
+  position: relative;
+  white-space: nowrap;
+  font-size: 40px;
+  color: #5a003c;
+  font-family: "Monofett", monospace;
+  margin: 0px 10px;
 `;
 
 export const StyledSVG = styled.div`
@@ -58,4 +83,24 @@ export const StyledSVG = styled.div`
     left: 2px;
     top: 2px;
   }
+`;
+
+export const HeaderRight = styled.div`
+  grid-column-start: 3;
+  display: flex;
+  justify-content: end;
+  @media only screen and (max-width: 800px) {
+    grid-column-start: 3;
+  }
+`;
+
+export const ModalButton = styled.button`
+  background-color: #a0dcff;
+  color: #5a003c;
+  border: 3px solid #5a003c;
+  border-radius: 50px;
+  height: 50px;
+  padding: 4px 15px 3.5px;
+  margin: 0px 15px;
+  cursor: pointer;
 `;

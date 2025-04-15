@@ -5,6 +5,7 @@ import { Header } from "./components";
 import { LayoutBody } from "./StyledLayout";
 import "@fontsource/monofett";
 import "@fontsource/bungee-shade";
+import "@fontsource/orienta";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

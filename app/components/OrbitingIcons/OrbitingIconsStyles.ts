@@ -5,7 +5,7 @@ export const Container = styled.div`
   position: relative;
   width: 350px;
   height: 350px;
-  margin: 0px auto;
+  /* margin: 0px auto; */
 `;
 
 export const CenterWrap = styled.div`
