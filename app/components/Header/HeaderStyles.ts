@@ -12,6 +12,17 @@ export const HeaderWrap = styled.div`
   z-index: 100;
   grid-template-columns: [first] 225px [second] 350px [third] 225px;
   justify-content: space-between;
+  background-image: linear-gradient(
+    rgba(160, 220, 255, 1),
+    rgba(160, 220, 255, 0.9),
+    rgba(160, 220, 255, 0.8),
+    rgba(160, 220, 255, 0.7),
+    rgba(160, 220, 255, 0.6),
+    rgba(160, 220, 255, 0.4),
+    rgba(160, 220, 255, 0.2),
+    rgba(160, 220, 255, 0)
+  );
+  /* background-image: linear-gradient(#a0dcff, transparent); */
   @media only screen and (max-width: 800px) {
     grid-template-columns: [first] auto [second] auto;
   }
@@ -65,7 +76,7 @@ export const SideText = styled.span<{ $position: "left" | "right" }>`
   );
 `;
 
-export const SideTextMobile = styled.span<{ $position: "left" | "right" }>`
+export const SideTextMobile = styled.span`
   position: relative;
   white-space: nowrap;
   font-size: 40px;
@@ -92,15 +103,4 @@ export const HeaderRight = styled.div`
   @media only screen and (max-width: 800px) {
     grid-column-start: 3;
   }
-`;
-
-export const ModalButton = styled.button`
-  background-color: #a0dcff;
-  color: #5a003c;
-  border: 3px solid #5a003c;
-  border-radius: 50px;
-  height: 50px;
-  padding: 4px 15px 3.5px;
-  margin: 0px 15px;
-  cursor: pointer;
 `;

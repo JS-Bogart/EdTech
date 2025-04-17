@@ -7,16 +7,21 @@ import {
   SideTextMobile,
   StyledSVG,
   LinkWrap,
-  ModalButton,
   HeaderRight,
 } from "./HeaderStyles";
 import { PlanetIcon } from "../../public/icons";
 import Link from "next/link";
 import { useCheckScreenSize } from "../../lib/useCheckScreenSize";
-import { ButtonComponent } from "../";
+import { ButtonComponent, ContributeModal } from "../";
+import { useModal } from "../../lib/ModalContext";
 
 const Header = () => {
   const isMobile = useCheckScreenSize(800);
+  const { openModal } = useModal();
+
+  const handleOpen = () => {
+    openModal(<ContributeModal />);
+  };
 
   return (
     <HeaderWrap>
@@ -38,14 +43,14 @@ const Header = () => {
             )}
             {isMobile && (
               <TextBox>
-                <SideTextMobile $position="right">Home</SideTextMobile>
+                <SideTextMobile>Home</SideTextMobile>
               </TextBox>
             )}
           </HeaderIconWrap>
         </Link>
       </LinkWrap>
       <HeaderRight>
-        <ButtonComponent buttonText="CONTRIBUTE" />
+        <ButtonComponent buttonText="CONTRIBUTE" buttonClick={handleOpen} />
       </HeaderRight>
     </HeaderWrap>
   );

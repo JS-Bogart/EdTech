@@ -14,6 +14,7 @@ export const Background = styled.div`
   justify-content: space-evenly;
   width: 100vw;
   height: 100vh;
+  z-index: 0;
   @media only screen and (max-width: 800px) {
     flex-direction: column;
     justify-content: center;
