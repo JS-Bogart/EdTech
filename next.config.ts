@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  images: {
+    remotePatterns: [new URL("http://img.youtube.com/vi/**")],
+  },
 };
 
 export default nextConfig;

@@ -5,9 +5,13 @@ import gsap from "gsap";
 
 interface ButtonProps {
   buttonText: string;
+  buttonClick(): any;
 }
 
-const ButtonComponent: React.FC<ButtonProps> = ({ buttonText }) => {
+const ButtonComponent: React.FC<ButtonProps> = ({
+  buttonText,
+  buttonClick,
+}) => {
   const waterFillRef = useRef(null);
   const ctaRef = useRef(null);
   const [tl, setTimeline] = useState<any>(null);
@@ -43,6 +47,7 @@ const ButtonComponent: React.FC<ButtonProps> = ({ buttonText }) => {
       ref={ctaRef}
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
+      onClick={() => buttonClick()}
     >
       <ButtonText>{buttonText}</ButtonText>
       <ButtonFill
