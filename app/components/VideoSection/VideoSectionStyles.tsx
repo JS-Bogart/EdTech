@@ -7,6 +7,7 @@ export const VideoSectionWrap = styled.div`
   z-index: 2;
   display: flex;
   justify-content: center;
+  margin-bottom: 100px;
 `;
 
 export const VideoSectionList = styled.div`

@@ -28,8 +28,7 @@ const VideoSection = () => {
       <VideoSectionList>
         {videoList &&
           videoList.map((video, idx) => {
-            // console.log({ video });
-            const { id, description, title, video_url } = video;
+            const { id, title, video_url } = video;
             const imageUrl = getImageUrl(video_url);
             const altText = getShortTitle(title);
             return (

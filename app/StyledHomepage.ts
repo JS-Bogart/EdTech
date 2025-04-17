@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const PageWrap = styled.div`
   background-color: #a0dcff;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 `;
 
 export const Background = styled.div`

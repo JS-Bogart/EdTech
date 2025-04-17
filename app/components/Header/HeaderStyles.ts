@@ -22,7 +22,6 @@ export const HeaderWrap = styled.div`
     rgba(160, 220, 255, 0.2),
     rgba(160, 220, 255, 0)
   );
-  /* background-image: linear-gradient(#a0dcff, transparent); */
   @media only screen and (max-width: 800px) {
     grid-template-columns: [first] auto [second] auto;
   }
