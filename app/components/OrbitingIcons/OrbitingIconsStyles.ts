@@ -1,5 +1,5 @@
 "use client";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
   position: relative;
@@ -21,6 +21,15 @@ export const CenterWrap = styled.div`
   }
 `;
 
+const spinCCW = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg); 
+  }
+`;
+
 export const OrbitIcon = styled.div`
   width: 40px;
   height: 40px;
@@ -28,6 +37,9 @@ export const OrbitIcon = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(calc(-50% + 20px), calc(-50% + 20px));
+  animation: ${spinCCW} 4s linear infinite;
+  transform-origin: center center;
+
   svg {
     width: 100%;
     height: 100%;
