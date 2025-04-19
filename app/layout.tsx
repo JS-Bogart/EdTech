@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: "EdTech Videos",
   description: "Site by Jeffrey Bogart",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.ico",
   },
 };
 
