@@ -1,4 +1,7 @@
+export { default as BlurryBackground } from "./BlurryBackground";
 export { default as ButtonComponent } from "./ButtonComponent";
+export { default as CommentModal } from "./CommentModal";
+export { default as CommentsSection } from "./CommentsSection";
 export { default as ContributeModal } from "./ContributeModal";
 export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";

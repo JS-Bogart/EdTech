@@ -148,7 +148,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoData }) => {
               <Progress
                 min={0}
                 max={1}
-                step={0.01}
+                step={0.0001}
                 value={played}
                 onChange={handleProgressChange}
               />

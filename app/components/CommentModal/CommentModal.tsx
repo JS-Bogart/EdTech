@@ -10,25 +10,33 @@ import {
   TextArea,
   Headline,
   CloseButton,
-} from "./ContributeModalStyles";
+} from "./CommentModalStyles";
 import { ButtonComponent } from "@/app/components";
-import { useModal, useVideoList } from "@/app/lib";
+import { useModal } from "@/app/lib";
 import { CloseIcon } from "@/app/public/icons";
+import { getComments, formatName } from "@/app/lib";
 
 type FormData = {
-  title: string;
-  description: string;
-  video_url: string;
+  firstname: string;
+  lastname: string;
+  content: string;
 };
 
-const ContributeModal = () => {
+type CommentModalProps = {
+  videoId: string;
+  setComments: any;
+};
+
+const CommentModal: React.FC<CommentModalProps> = ({
+  videoId,
+  setComments,
+}) => {
   const { closeModal } = useModal();
-  const { getVideoList } = useVideoList();
 
   const [formData, setFormData] = useState<FormData>({
-    title: "",
-    description: "",
-    video_url: "",
+    firstname: "",
+    lastname: "",
+    content: "",
   });
   const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
 
@@ -41,24 +49,25 @@ const ContributeModal = () => {
 
   const handleSubmitSuccess = () => {
     setSubmitSuccess(true);
-    getVideoList();
+    getComments(videoId, setComments);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { title, description, video_url } = formData;
+    const { firstname, lastname, content } = formData;
+    const userId = formatName(firstname, lastname);
+
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        user_id: "jeffrey_bogart",
-        title,
-        description,
-        video_url,
+        user_id: userId,
+        content,
+        video_id: videoId,
       }),
     };
     const response = await fetch(
-      "https://take-home-assessment-423502.uc.r.appspot.com/api/videos",
+      "https://take-home-assessment-423502.uc.r.appspot.com/api/videos/comments",
       requestOptions
     );
 
@@ -70,7 +79,7 @@ const ContributeModal = () => {
   if (submitSuccess) {
     return (
       <ModalWrapper>
-        <Headline>Your video was successfully uploaded!</Headline>
+        <Headline>Your comment has been posted!</Headline>
         <ButtonWrapper $position="center">
           <ButtonComponent buttonText="CLOSE" buttonClick={closeModal} />
         </ButtonWrapper>
@@ -88,36 +97,36 @@ const ContributeModal = () => {
       <FormWrapper onSubmit={handleSubmit}>
         <Headline>Upload a video!</Headline>
         <FormGroup>
-          <Label htmlFor="title">Title</Label>
+          <Label htmlFor="firstname">First Name</Label>
           <Input
             type="text"
-            id="title"
-            name="title"
-            value={formData.title}
+            id="firstname"
+            name="firstname"
+            value={formData.firstname}
             onChange={handleChange}
             required
           />
         </FormGroup>
 
         <FormGroup>
-          <Label htmlFor="description">Description</Label>
-          <TextArea
-            id="description"
-            name="description"
-            rows={4}
-            value={formData.description}
-            onChange={handleChange}
-            required
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <Label htmlFor="video_url">Video URL</Label>
+          <Label htmlFor="lastname">Last Name</Label>
           <Input
-            type="url"
-            id="video_url"
-            name="video_url"
-            value={formData.video_url}
+            type="text"
+            id="lastname"
+            name="lastname"
+            value={formData.lastname}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label htmlFor="content">Comments</Label>
+          <TextArea
+            id="content"
+            name="content"
+            rows={4}
+            value={formData.content}
             onChange={handleChange}
             required
           />
@@ -131,4 +140,4 @@ const ContributeModal = () => {
   );
 };
 
-export default ContributeModal;
+export default CommentModal;

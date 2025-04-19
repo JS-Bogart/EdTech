@@ -8,11 +8,9 @@ import {
   TextWrap,
   VideoText,
 } from "./VideoSectionStyles";
-import { useVideoList } from "../../lib/VideoListContext";
+import { useVideoList, getImageUrl, getShortTitle } from "@/app/lib";
 import Image from "next/image";
 import Link from "next/link";
-import { getImageUrl } from "@/app/lib/getImageUrl";
-import { getShortTitle } from "@/app/lib/getShortTitle";
 
 const VideoSection = () => {
   const { getVideoList, videoList } = useVideoList();

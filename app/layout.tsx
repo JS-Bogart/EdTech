@@ -6,8 +6,7 @@ import { LayoutBody } from "./StyledLayout";
 import "@fontsource/monofett";
 import "@fontsource/bungee-shade";
 import "@fontsource/orienta";
-import { ModalProvider } from "./lib/ModalContext";
-import { VideoListProvider } from "./lib/VideoListContext";
+import { ModalProvider, VideoListProvider } from "@/app/lib";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,6 +21,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "EdTech Videos",
   description: "Site by Jeffrey Bogart",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
