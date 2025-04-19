@@ -35,7 +35,12 @@ const VideoSection = () => {
               <Link href={`/videos/${id}`} key={`${idx}-${id}`}>
                 <VideoWrap>
                   <ImageWrap>
-                    <Image src={imageUrl} fill={true} alt={altText} />
+                    <Image
+                      src={imageUrl}
+                      fill={true}
+                      alt={altText}
+                      sizes="(max-width: 740px) 95vw, (max-width: 1000px) 48vw, (max-width: 1260px) 32vw, 24vw"
+                    />
                     <TextWrap>
                       <VideoText>{title}</VideoText>
                     </TextWrap>

@@ -10,6 +10,7 @@ export const FooterWrap = styled.div`
   width: 100vw;
   justify-content: space-between;
 `;
+
 export const FooterText = styled.span`
   color: #5a003c;
 `;
