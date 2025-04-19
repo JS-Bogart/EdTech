@@ -33,7 +33,11 @@ export const VideoListProvider: React.FC<{ children: ReactNode }> = ({
 
   return (
     <VideoListContext.Provider
-      value={{ getVideoList, videoList, setVideoList }}
+      value={{
+        getVideoList,
+        videoList,
+        setVideoList,
+      }}
     >
       {children}
     </VideoListContext.Provider>
