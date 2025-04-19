@@ -13,7 +13,7 @@ import {
   MusicIcon,
   PlanetIcon,
   TubeIcon,
-} from "../../public/icons";
+} from "@/app/public/icons";
 import {
   Container,
   CenterWrap,
@@ -60,7 +60,7 @@ const OrbitingIcons: React.FC = () => {
       <OrbitWrapper ref={orbitRef}>
         {icons.map((icon, index) => {
           const angle = index * angleStep;
-          const x = 175 + radius * Math.cos(angle) - 20; // 150 = center of container, 20 = half icon size
+          const x = 175 + radius * Math.cos(angle) - 20;
           const y = 175 + radius * Math.sin(angle) - 20;
           return (
             <OrbitIcon key={index} style={{ top: `${y}px`, left: `${x}px` }}>

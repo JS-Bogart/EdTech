@@ -9,11 +9,10 @@ import {
   LinkWrap,
   HeaderRight,
 } from "./HeaderStyles";
-import { PlanetIcon } from "../../public/icons";
+import { PlanetIcon } from "@/app/public/icons";
 import Link from "next/link";
-import { useCheckScreenSize } from "../../lib/useCheckScreenSize";
-import { ButtonComponent, ContributeModal } from "../";
-import { useModal } from "../../lib/ModalContext";
+import { useCheckScreenSize, useModal } from "@/app/lib";
+import { ButtonComponent, ContributeModal } from "@/app/components";
 
 const Header = () => {
   const isMobile = useCheckScreenSize(800);
