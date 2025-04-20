@@ -20,6 +20,7 @@ import {
   ControlsTop,
   ControlsBottom,
   ControlsSides,
+  FilterWrap,
 } from "./VideoPlayerStyles";
 import ReactPlayer from "react-player/youtube";
 import type { OnProgressProps } from "react-player/base";
@@ -113,36 +114,38 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoData }) => {
       <SRWrapper>
         <PlayerWrapper ref={containerRef} onMouseMove={handleMouseMove}>
           <PlayerInner>
-            <StyledReactPlayer
-              ref={playerRef}
-              url={video_url}
-              playing={playing}
-              volume={volume}
-              muted={muted}
-              playbackRate={speed}
-              onPlay={() => setPlaying(true)}
-              onPause={() => setPlaying(false)}
-              onProgress={(progress: OnProgressProps) => {
-                setPlayed(progress.played);
-                setPlayedSeconds(progress.playedSeconds);
-              }}
-              onDuration={(duration: number) => setDuration(duration)}
-              progressInterval={500}
-              width="100%"
-              height="100%"
-              controls={false}
-              config={{
-                youtube: {
-                  playerVars: {
-                    modestbranding: 1,
-                    rel: 0,
-                    showinfo: 0,
-                    controls: 0,
-                    disablekb: 1,
+            <FilterWrap $filter={playing}>
+              <StyledReactPlayer
+                ref={playerRef}
+                url={video_url}
+                playing={playing}
+                volume={volume}
+                muted={muted}
+                playbackRate={speed}
+                onPlay={() => setPlaying(true)}
+                onPause={() => setPlaying(false)}
+                onProgress={(progress: OnProgressProps) => {
+                  setPlayed(progress.played);
+                  setPlayedSeconds(progress.playedSeconds);
+                }}
+                onDuration={(duration: number) => setDuration(duration)}
+                progressInterval={500}
+                width="100%"
+                height="100%"
+                controls={false}
+                config={{
+                  youtube: {
+                    playerVars: {
+                      modestbranding: 1,
+                      rel: 0,
+                      showinfo: 0,
+                      controls: 0,
+                      disablekb: 1,
+                    },
                   },
-                },
-              }}
-            />
+                }}
+              />
+            </FilterWrap>
             {!playing && (
               <OverlayPlayButton onClick={togglePlay}>
                 <OverlayInner>▶</OverlayInner>
