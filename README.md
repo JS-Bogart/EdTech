@@ -21,14 +21,31 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 - **Homepage**: This landing page also serves up a list of videos to watch, so users can jump right into learning! The **CONTRIBUTE** button in the header allows users to add educational videos of their own.
 
+![homepage](/public/homepage.png)
+
 - **Videos[videoId]**: Users are redirected to these dynamic pages upon selecting a video. Here they can watch videos as well as read and add comments to engage with contributers and other users.
+
+![video_page](/public/video_page.png)
 
 ## Site Features
 
 - **Video Browsing**: Scroll and browse through our catalogue of educational videos on a variety of topics.
+
+![video_list](/public/video_list.png)
+
 - **Video Uploading**: Users can contribute to the site by adding educational videos of their own! Simply click the **CONTRIBUTE** button, and enter the video name, description, and url.
+
+![contribute](/public/contribute.png)
+![upload](/public/upload.png)
+
 - **Comments**: Users can read comments from other users, or and their own by clicking the **Add a comment** button at the top of the comments section.
+
+![comments](/public/comments.png)
+![add_comment](/public/add_comment.png)
+
 - **Custom Video Player**: Our customized video player allows users to play, pause, skip around, mute or adjust the volume, change the playback speed, and enter fullscreen.
+
+![video_player](/public/video_player.png)
 
 ## Technologies
 
