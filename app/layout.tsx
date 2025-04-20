@@ -1,22 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import Head from "next/head";
 import "./globals.css";
 import { Header, Footer } from "./components";
 import { LayoutBody } from "./StyledLayout";
+import { ModalProvider, VideoListProvider } from "@/app/lib";
 import "@fontsource/monofett";
 import "@fontsource/bungee-shade";
 import "@fontsource/orienta";
-import { ModalProvider, VideoListProvider } from "@/app/lib";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "EdTech Videos",
@@ -35,7 +25,13 @@ export default function RootLayout({
     <VideoListProvider>
       <ModalProvider>
         <html lang="en">
-          <LayoutBody className={`${geistSans.variable} ${geistMono.variable}`}>
+          <Head>
+            <link
+              rel="preconnect"
+              href="https://take-home-assessment-423502.uc.r.appspot.com"
+            />
+          </Head>
+          <LayoutBody>
             <Header />
             {children}
             <Footer />

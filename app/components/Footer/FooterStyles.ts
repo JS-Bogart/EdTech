@@ -8,6 +8,7 @@ export const FooterWrap = styled.div`
   padding: 10px;
   display: flex;
   width: 100vw;
+  height: 40px;
   justify-content: space-between;
 `;
 

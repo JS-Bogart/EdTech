@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   VPComponent,
   SRWrapper,
@@ -30,6 +30,7 @@ import {
   EnterFullscreenIcon,
   ExitFullscreenIcon,
 } from "@/app/public/icons";
+import { formatTime } from "@/app/lib";
 import { useCheckScreenSize } from "@/app/lib/useCheckScreenSize";
 
 interface VideoPlayerProps {
@@ -41,6 +42,7 @@ interface VideoPlayerProps {
   autoplay?: boolean;
 }
 
+//This is the video player, which includes custom styled controls.
 const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoData }) => {
   const { video_url, title, description } = videoData;
 
@@ -61,20 +63,29 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoData }) => {
 
   const togglePlay = () => setPlaying((prev) => !prev);
   const toggleMute = () => setMuted((prev) => !prev);
+
+  //Handles the logic for the video volume bar in the controls
   const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
     const vol = parseFloat(e.target.value);
     setVolume(vol);
     setMuted(vol === 0);
   };
+
+  //Handles the logic for the video progress bar in the controls
   const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = parseFloat(e.target.value);
     setPlayed(val);
     playerRef.current?.seekTo(val, "fraction");
   };
+
+  //Changes the video speed when a particular speed is selected from the dropdown
   const handleSpeedChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const val = parseFloat(e.target.value);
     setSpeed(val);
   };
+
+  //This function toggles fullscreen on the video when the fullscreen icon is
+  //clicked in the video controls
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
       setIsFullscreen(true);
@@ -85,6 +96,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoData }) => {
     }
   };
 
+  //Hides the controls after 2 seconds of the mouse not moving over the video player
   const handleMouseMove = () => {
     setShowControls(true);
     if (hideControlsTimeout.current) clearTimeout(hideControlsTimeout.current);
@@ -92,12 +104,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoData }) => {
     hideControlsTimeout.current = setTimeout(() => {
       setShowControls(false);
     }, 2000);
-  };
-
-  const formatTime = (seconds: number): string => {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
   };
 
   return (

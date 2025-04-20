@@ -8,6 +8,8 @@ interface ButtonProps {
   buttonClick(): any;
 }
 
+//This is a reusable button component that has a fill animation that triggers
+// when the button hovered over. It takes in text and a function as props.
 const ButtonComponent: React.FC<ButtonProps> = ({
   buttonText,
   buttonClick,

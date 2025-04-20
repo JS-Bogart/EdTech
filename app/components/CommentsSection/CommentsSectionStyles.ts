@@ -21,12 +21,13 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const CommentItem = styled.div`
+export const CommentItem = styled.li`
   padding: 12px;
   margin-bottom: 10px;
   background-color: #a0dcff;
   border: 3px solid #5a003c;
   border-radius: 6px;
+  list-style: none;
 `;
 
 export const UserName = styled.div`

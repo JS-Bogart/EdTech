@@ -1,5 +1,6 @@
 import { FooterWrap, FooterText } from "./FooterStyles";
 
+//Footer component displayed at the bottom of each page
 const Footer = () => {
   return (
     <FooterWrap>

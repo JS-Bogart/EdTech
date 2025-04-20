@@ -1,6 +1,7 @@
 "use client";
 import styled from "styled-components";
 
+//styles for the landing/video list page
 export const PageWrap = styled.div`
   background-color: #a0dcff;
   width: 100vw;

@@ -3,21 +3,20 @@ import { useEffect } from "react";
 import {
   VideoSectionWrap,
   VideoSectionList,
-  VideoWrap,
-  ImageWrap,
-  TextWrap,
-  VideoText,
+  VideoListItem,
 } from "./VideoSectionStyles";
 import { useVideoList, getImageUrl, getShortTitle } from "@/app/lib";
-import Image from "next/image";
 import Link from "next/link";
+import { ImageWithFallback } from "@/app/components";
 
+//This component fetches and contains a list of videos to be displayed on the
+//homepage
 const VideoSection = () => {
   const { getVideoList, videoList } = useVideoList();
 
   useEffect(() => {
     if (videoList.length < 1) {
-      getVideoList();
+      getVideoList(); //Fetches the list of videos on initial page load
     }
   }, []);
 
@@ -29,22 +28,18 @@ const VideoSection = () => {
             const { id, title, video_url } = video;
             const imageUrl = getImageUrl(video_url);
             const altText = getShortTitle(title);
+            const preload = idx === 0;
             return (
-              <Link href={`/videos/${id}`} key={`${idx}-${id}`}>
-                <VideoWrap>
-                  <ImageWrap>
-                    <Image
-                      src={imageUrl}
-                      fill={true}
-                      alt={altText}
-                      sizes="(max-width: 740px) 95vw, (max-width: 1000px) 48vw, (max-width: 1260px) 32vw, 24vw"
-                    />
-                    <TextWrap>
-                      <VideoText>{title}</VideoText>
-                    </TextWrap>
-                  </ImageWrap>
-                </VideoWrap>
-              </Link>
+              <VideoListItem key={`${idx}-${id}`}>
+                <Link href={`/videos/${id}`}>
+                  <ImageWithFallback
+                    imageUrl={imageUrl}
+                    altText={altText}
+                    preload={preload}
+                    title={title}
+                  />
+                </Link>
+              </VideoListItem>
             );
           })}
       </VideoSectionList>

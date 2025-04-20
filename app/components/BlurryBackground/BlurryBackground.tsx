@@ -1,33 +1,17 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import styled from "styled-components";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BlurWrapper, BlurContent } from "./BlurryBackgroundStyles";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const BlurWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-  overflow: hidden;
-`;
-
-const BlurContent = styled.div`
-  width: 100%;
-  height: 100%;
-  transition: filter 0.2s ease;
-  will-change: filter;
-`;
 
 type BlurryBackgroundProps = {
   children: React.ReactNode;
 };
 
+//This components creates the blur effect on the homepage background when the
+//user scrolls up.
 const BlurryBackground: React.FC<BlurryBackgroundProps> = ({ children }) => {
   const blurRef = useRef<HTMLDivElement>(null);
 

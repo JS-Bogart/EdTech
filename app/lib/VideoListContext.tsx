@@ -18,6 +18,8 @@ const VideoListContext = createContext<VideoListContextType | undefined>(
   undefined
 );
 
+//Provider for access to the video list context. Allows child components to fetch
+//and access the list of videos.
 export const VideoListProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
@@ -25,7 +27,7 @@ export const VideoListProvider: React.FC<{ children: ReactNode }> = ({
 
   const getVideoList = () => {
     fetch(
-      `https://take-home-assessment-423502.uc.r.appspot.com/videos?user_id=jeffrey_bogart`
+      `https://take-home-assessment-423502.uc.r.appspot.com/api/videos?user_id=jeffrey_bogart`
     )
       .then((response) => response.json())
       .then((data) => setVideoList(data.videos));
