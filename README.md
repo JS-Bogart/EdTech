@@ -2,7 +2,7 @@
 
 ## Intro
 
-EdTech is an educational website where users can watch videos and learn about a variety of topics, share their thoughts, and contribute by uploading their own videos!
+EdTech Videos is an educational website where users can watch videos and learn about a variety of topics, share their thoughts, and contribute by uploading their own videos!
 
 ## Getting Started
 
