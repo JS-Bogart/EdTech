@@ -92,7 +92,7 @@ export const PlayerWrapper = styled.div`
   }
 `;
 
-export const PlayerInner = styled.div`
+export const FilterWrap = styled.div<{ $filter: boolean }>`
   position: relative;
   width: 100%;
   padding-top: 56.25%;
@@ -103,7 +103,14 @@ export const PlayerInner = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  background-color: transparent;
+  transition: filter 0.1s ease;
+  filter: ${(props) =>
+    props.$filter ? "brightness(100%)" : "brightness(50%)"};
 `;
+
+export const PlayerInner = styled.div``;
 
 export const Controls = styled.div<{ $visible: boolean }>`
   position: absolute;
