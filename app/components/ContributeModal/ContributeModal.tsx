@@ -21,6 +21,9 @@ type FormData = {
   video_url: string;
 };
 
+//This component contains the content of the modal that opens when uploading a
+//video. It contains a form where users add the video title, a description of the
+//video, and a url for the video.
 const ContributeModal = () => {
   const { closeModal } = useModal();
   const { getVideoList } = useVideoList();
@@ -32,6 +35,7 @@ const ContributeModal = () => {
   });
   const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
 
+  //Handles changes to the form inputs
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -39,11 +43,14 @@ const ContributeModal = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  //Upon a successful upload, this function logs the success and fetches the
+  //updated list of videos
   const handleSubmitSuccess = () => {
     setSubmitSuccess(true);
     getVideoList();
   };
 
+  //When the submit button is clicked, this function sends the post request
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const { title, description, video_url } = formData;
@@ -67,6 +74,8 @@ const ContributeModal = () => {
     }
   };
 
+  //Once a video has been successfully uploaded, this element is returned, prompting
+  //the user to close the modal.
   if (submitSuccess) {
     return (
       <ModalWrapper>
@@ -78,6 +87,7 @@ const ContributeModal = () => {
     );
   }
 
+  //This returns the form for users to fill out when uploading a video.
   return (
     <ModalWrapper>
       <ButtonWrapper $position="right">

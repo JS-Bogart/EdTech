@@ -27,6 +27,9 @@ type CommentModalProps = {
   setComments: any;
 };
 
+//This component contains the content of the modal that opens when adding a comment
+//on a video. It contains a form where users add their first and last name, and
+//their comments.
 const CommentModal: React.FC<CommentModalProps> = ({
   videoId,
   setComments,
@@ -40,6 +43,7 @@ const CommentModal: React.FC<CommentModalProps> = ({
   });
   const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
 
+  //Handles changes to the form inputs
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -47,11 +51,14 @@ const CommentModal: React.FC<CommentModalProps> = ({
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  //Upon a successful post, this function logs the success and fetches the
+  //updated list of comments
   const handleSubmitSuccess = () => {
     setSubmitSuccess(true);
     getComments(videoId, setComments);
   };
 
+  //When the submit button is clicked, this function sends the post request
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const { firstname, lastname, content } = formData;
@@ -76,6 +83,8 @@ const CommentModal: React.FC<CommentModalProps> = ({
     }
   };
 
+  //Once a comment has been successfully submitted, this element is returned,
+  //prompting the user to close the modal.
   if (submitSuccess) {
     return (
       <ModalWrapper>
@@ -87,6 +96,7 @@ const CommentModal: React.FC<CommentModalProps> = ({
     );
   }
 
+  //This returns the form for users to fill out when commenting on a video.
   return (
     <ModalWrapper>
       <ButtonWrapper $position="right">

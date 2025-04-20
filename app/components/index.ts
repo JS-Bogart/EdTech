@@ -5,6 +5,7 @@ export { default as CommentsSection } from "./CommentsSection";
 export { default as ContributeModal } from "./ContributeModal";
 export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
+export { default as ImageWithFallback } from "./ImageWithFallback";
 export { default as OrbitingIcons } from "./OrbitingIcons";
 export { default as VideoPlayer } from "./VideoPlayer";
 export { default as VideoSection } from "./VideoSection";

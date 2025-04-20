@@ -13,16 +13,17 @@ type CurrentVideo = {
   video_url: string;
 };
 
+//This page displays the video player and comments for a particular video.
 export default function Page() {
   const [currentVideo, setCurrentVideo] = useState<CurrentVideo | null>(null);
   const [comments, setComments] = useState([]);
   const pathname = usePathname();
-  const videoId = pathname.split("/").pop();
+  const videoId = pathname.split("/").pop(); //Pulls video_id slug from pathname to be used for fetching video and comments
 
   useEffect(() => {
     if (videoId) {
-      getSingleVideo(videoId, setCurrentVideo);
-      getComments(videoId, setComments);
+      getSingleVideo(videoId, setCurrentVideo); //Fetches video
+      getComments(videoId, setComments); //Fetches list of comments
     }
   }, []);
 

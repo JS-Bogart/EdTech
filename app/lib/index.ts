@@ -7,3 +7,4 @@ export { getShortTitle } from "./getShortTitle";
 export { useCheckScreenSize } from "./useCheckScreenSize";
 export { formatUserId } from "./formatUserId";
 export { formatName } from "./formatName";
+export { formatTime } from "./formatTime";

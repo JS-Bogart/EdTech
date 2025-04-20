@@ -19,6 +19,8 @@ const ModalOverlay = styled.div`
   z-index: 999;
 `;
 
+//Provider for access to modal context. Allows child components to open and close modals,
+//and is reusable allowing different modal content to be opened.
 export const ModalProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {

@@ -14,10 +14,15 @@ import Link from "next/link";
 import { useCheckScreenSize, useModal } from "@/app/lib";
 import { ButtonComponent, ContributeModal } from "@/app/components";
 
+//This is the component for the Header at the top of the pages. It contains a
+//button to upload videos, as well as a link back to the homepage. The link
+//contains on hover animations
 const Header = () => {
-  const isMobile = useCheckScreenSize(800);
+  const isClient = typeof window !== "undefined";
+  const isMobile = isClient && useCheckScreenSize(800);
   const { openModal } = useModal();
 
+  //This function opens the button to upload videos when clicked
   const handleOpen = () => {
     openModal(<ContributeModal />);
   };

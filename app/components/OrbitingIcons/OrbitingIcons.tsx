@@ -21,6 +21,7 @@ import {
   OrbitWrapper,
 } from "./OrbitingIconsStyles";
 
+//An array of svg icons used by the component
 const icons = [
   <ActingIcon />,
   <AtomIcon />,
@@ -34,6 +35,9 @@ const icons = [
   <TubeIcon />,
 ];
 
+//This component handles the animation of the background image on the homepage.
+//The animations are powered by GSAP, and consist of small spinning icons orbitting
+//a larger icon.
 const OrbitingIcons: React.FC = () => {
   const orbitRef = useRef<HTMLDivElement>(null);
 
@@ -50,7 +54,7 @@ const OrbitingIcons: React.FC = () => {
   }, []);
 
   const radius = 150;
-  const angleStep = (2 * Math.PI) / icons.length;
+  const angleStep = (2 * Math.PI) / icons.length; //Allows the icons to be evenly spaced in a circle
 
   return (
     <Container>
